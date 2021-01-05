@@ -3,13 +3,15 @@ import TextField from '@material-ui/core/TextField';
 import classes from './FlightSearch.module.css';
 import Box from '@material-ui/core/Box';
 import SearchIcon from '../../assets/images/search-icon.svg';
+import {getAutocomplete} from '../../utils';
 
 class FlightSearch extends Component {
     state = {
         departureDate: "2021-02-01",
-        source: null,
-        destination: null,
-        numberOfTickets: 0
+        source: "London",
+        destination: "Amsterdam",
+        numberOfTickets: 1,
+        suggestions: []
     }
 
     onDateChange = () => {
@@ -33,7 +35,7 @@ class FlightSearch extends Component {
     }
 
     handleClick = () => {
-        console.log(this.state)
+        getAutocomplete(this.state.source).then(data => console.log(data));
     }
 
     render() {
@@ -48,13 +50,17 @@ class FlightSearch extends Component {
                         type="date"
                         onChange={this.onDateChange}
                         defaultValue="2021-02-01"
+                        inputProps={{
+                            min: "2021-02-01",
+                            max: "2021-02-28"
+                          }}
                     />
                     <Box m={2} />
                     <TextField
                         id="src"
                         label="From..."
                         onChange={this.onSrcChange}
-                        defaultValue="Tel Aviv"
+                        defaultValue="London"
                     />
                     <Box m={2} />
                     <TextField
@@ -63,13 +69,13 @@ class FlightSearch extends Component {
                         onChange={this.onDstChange}
                         defaultValue="Amsterdam"
                     />
-                    <Box m={2} />
+                    <Box m={2.4} />
                     <TextField
                         id="tickets"
                         label="Number of Tickets"
                         type="number"
                         onChange={this.onTicketsChange}
-                        defaultValue="0"
+                        defaultValue="1"
                     />
                     <Box m={1} />
                 </div>
