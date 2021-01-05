@@ -2,16 +2,18 @@ import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 import classes from './FlightSearch.module.css';
 import Box from '@material-ui/core/Box';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import SearchIcon from '../../assets/images/search-icon.svg';
-import {getAutocomplete} from '../../utils';
+import {getAutocomplete, handleSuggestions} from '../../utils';
 
 class FlightSearch extends Component {
     state = {
         departureDate: "2021-02-01",
-        source: "London",
-        destination: "Amsterdam",
+        source: "",
+        destination: "",
         numberOfTickets: 1,
-        suggestions: []
+        srcSuggestions: [],
+        dstSuggestions: []
     }
 
     onDateChange = () => {
@@ -19,14 +21,20 @@ class FlightSearch extends Component {
         this.setState({departureDate: val});
     }
 
-    onSrcChange = () => {
-        let val = document.getElementById("src").value;
+    onSrcChange = (val) => {
         this.setState({source: val});
+        getAutocomplete(val).then((data => this.setState({srcSuggestions: handleSuggestions(data)})))
+            .catch(error => {
+                this.setState({suggestions: []})
+            });
     }
 
-    onDstChange = () => {
-        let val = document.getElementById("dst").value;
+    onDstChange = (val) => {
         this.setState({destination: val});
+        getAutocomplete(val).then((data => this.setState({dstSuggestions: handleSuggestions(data)})))
+            .catch(error => {
+                this.setState({suggestions: []})
+            });
     }
 
     onTicketsChange = () => {
@@ -35,7 +43,13 @@ class FlightSearch extends Component {
     }
 
     handleClick = () => {
-        getAutocomplete(this.state.source).then(data => console.log(data));
+        // this.setState({source: document.getElementById("srcAC").value});
+        // this.setState({destination: document.getElementById("dstAC").value});
+        console.log(this.state.departureDate)
+        console.log(this.state.source)
+        console.log(this.state.destination)
+        console.log(this.state.numberOfTickets)
+
     }
 
     render() {
@@ -56,19 +70,33 @@ class FlightSearch extends Component {
                           }}
                     />
                     <Box m={2} />
-                    <TextField
-                        id="src"
-                        label="From..."
-                        onChange={this.onSrcChange}
-                        defaultValue="London"
-                    />
+                    <Autocomplete
+                        id="srcAC"
+                        style={{ width: 200 }}
+                        options={this.state.srcSuggestions}
+                        onChange={(event, value) => this.onSrcChange(value)}
+                        onInputChange={(event, value) => this.onSrcChange(value)}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                label="From..."
+                            />                                     
+                        )} 
+                    />       
                     <Box m={2} />
-                    <TextField
-                        id="dst"
-                        label="To..."
-                        onChange={this.onDstChange}
-                        defaultValue="Amsterdam"
-                    />
+                    <Autocomplete
+                        id="dstAC"
+                        style={{ width: 200 }}
+                        options={this.state.dstSuggestions}
+                        onChange={(event, value) => this.onDstChange(value)}
+                        onInputChange={(event, value) => this.onDstChange(value)}
+                        renderInput={(params) => (
+                            <TextField
+                                {...params}
+                                id="dst"
+                                label="To..." />
+                        )} 
+                    /> 
                     <Box m={2.4} />
                     <TextField
                         id="tickets"
