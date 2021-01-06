@@ -7,6 +7,7 @@ import Spinner from '../../components/Spinner/Spinner'
 class Results extends Component {
     state = {
         results: [],
+        rawResults: [],
         date: '',
         source: '',
         destination: '',
@@ -20,9 +21,9 @@ class Results extends Component {
                         destination: this.props.location.destination, 
                         tickets: this.props.location.tickets});
         let d = this.props.location.date.split('-');    
-        getFlights(extractICAO(this.props.location.source), extractICAO(this.props.location.destination), d[0], d[1], d[2], this.state.tickets)
+        getFlights(extractICAO(this.props.location.source), extractICAO(this.props.location.destination), d[0], d[1], d[2], this.props.location.tickets)
         .then(data => {
-            this.setState({results: handleFlightResults(data), loading: false});
+            this.setState({rawResults: data, results: handleFlightResults(data), loading: false});
         });
     }
 
