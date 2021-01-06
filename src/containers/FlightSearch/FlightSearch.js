@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import SearchIcon from '../../assets/images/search-icon.svg';
 import {getAutocomplete, handleSuggestions} from '../../utils';
+import { withRouter } from 'react-router-dom';
 
 class FlightSearch extends Component {
     state = {
@@ -43,13 +44,13 @@ class FlightSearch extends Component {
     }
 
     handleClick = () => {
-        // this.setState({source: document.getElementById("srcAC").value});
-        // this.setState({destination: document.getElementById("dstAC").value});
-        console.log(this.state.departureDate)
-        console.log(this.state.source)
-        console.log(this.state.destination)
-        console.log(this.state.numberOfTickets)
-
+        this.props.history.push({
+            pathname: '/results',
+            date: this.state.departureDate,
+            source: this.state.source,
+            destination: this.state.destination, 
+            tickets: this.state.numberOfTickets
+        });
     }
 
     render() {
@@ -117,4 +118,4 @@ class FlightSearch extends Component {
     }
 }
 
-export default FlightSearch;
+export default withRouter(FlightSearch);
