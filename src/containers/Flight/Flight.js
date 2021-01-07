@@ -13,6 +13,12 @@ class Flight extends Component {
         let f = this.props.details.trip_flights;
         let i = 1;
         let flights = f.map((flight, index) => {
+            let connectionTime = "";
+            if (flight.connection_time != undefined) {
+                connectionTime = <Grid item xs={12}>
+                                    <p className={classes.Connection}>Connection Time: {handleHour(flight.connection_time)}</p>
+                                </Grid>
+            }
             return (
                 <Aux>
                     <Grid item xs={12}>
@@ -36,6 +42,7 @@ class Flight extends Component {
                     <Grid item xs={6}>
                         <p className={classes.Text}>{flight.airplane}</p>
                     </Grid>
+                    {connectionTime}               
                 </Aux>
         )});
         return (

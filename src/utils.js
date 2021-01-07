@@ -12,8 +12,17 @@ export const handleDateTime = (dateTime) => {
 }
 
 export const handleHour = (hour) => {
-    let s = hour.split(':');
-    let t = parseInt(s[0], 10) + "h " + parseInt(s[1], 10) + "m"
+    let s;
+    let day = '';
+    let d = '';
+    if (hour.includes(".")) {
+        s = hour.split(".");
+        d = 'd ';
+        day = parseInt(s[0], 10);
+        hour = s[1];
+    }
+    s = hour.split(':');
+    let t = day + d + parseInt(s[0], 10) + "h " + parseInt(s[1], 10) + "m"
     return t;
 }
 
