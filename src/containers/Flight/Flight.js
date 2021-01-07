@@ -20,14 +20,15 @@ class Flight extends Component {
                     </Grid>
                     <Grid item xs={4}>
                         <p className={classes.Text}>{handleDateTime(flight.local_departure_time)}</p>
+                        <p className={classes.Airport}>{flight.source_airport.city}</p>
                     </Grid>
                     <Grid item xs={4}>
                             <img src={Arrow} className={classes.Image} />
                             <p className={classes.Duration}>{handleHour(flight.duration)}</p>
-
                     </Grid>
                     <Grid item xs={4}>
                         <p className={classes.Text}>{handleDateTime(flight.local_arrival_time)}</p>
+                        <p className={classes.Airport}>{flight.destination_airport.city}</p>
                     </Grid>
                     <Grid item xs={6}>
                         <p className={classes.Text}>{flight.airline.name}</p>
