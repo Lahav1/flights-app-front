@@ -11,6 +11,12 @@ export const handleDateTime = (dateTime) => {
     return newDate;
 }
 
+export const handleHour = (hour) => {
+    let s = hour.split(':');
+    let t = parseInt(s[0], 10) + "h " + parseInt(s[1], 10) + "m"
+    return t;
+}
+
 export const handleAirportName = (airport) => {
     let ap = airport.split(",");
     let r = ap[0];

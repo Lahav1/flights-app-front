@@ -1,0 +1,32 @@
+.Image {
+    height: 30px;
+    width: 30px;
+    margin-top: 15px;
+    vertical-align: middle;
+}
+
+.Text {
+    font-size: 14px;
+}
+
+.Header {
+    font-size: 18px;
+}
+
+.Button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    color: #0092BD;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 19px;
+    font-weight: bold;
+    text-shadow: 1px 1px #BDBDBD;
+}
+
+.Duration {
+    margin-top: -5px;
+    font-size: 11px;
+}
