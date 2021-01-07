@@ -8,12 +8,14 @@ import ArrivalLogo from '../../../assets/images/arrivals.svg'
 import Arrow from '../../../assets/images/straight-right-arrow.svg'
 
 class Result extends Component {
-    
+    handleClick = () => {
+        this.props.clicked(this.props.number);
+    }
+
     render() {    
         return (
             <Aux>
-                <div className={classes.Result}>
-                    
+                <div className={classes.Result} onClick={this.handleClick}> 
                     <Grid container spacing={0}>
                         <Grid item xs={1} />
                         <Grid item xs={4}>

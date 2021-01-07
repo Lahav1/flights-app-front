@@ -59,7 +59,6 @@ export const getAutocomplete = async (str) => {
 export const getFlights = async (src, dest, y, m, d, tickets) => {
     const base = 'https://localhost:44353/api/Values';
     const query = `?src=${src}&dest=${dest}&y=${y}&m=${m}&d=${d}&tickets=${tickets}`;
-    console.log(base + query);
     const response = await fetch(base + query);
     const data = await response.json();
     return data;

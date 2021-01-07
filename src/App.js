@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import Layout from './components/Layout/Layout'
+import Layout from './components/Layout/Layout';
 import {Route, Switch} from 'react-router-dom';
-import FlightSearch from './containers/FlightSearch/FlightSearch'
-import Reservations from './containers/Reservations/Reservations'
-import Results from './containers/Results/Results'
+import FlightSearch from './containers/FlightSearch/FlightSearch';
+import Reservations from './containers/Reservations/Reservations';
+import Results from './containers/Results/Results';
+import Flight from './containers/Flight/Flight';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
             <Switch>
               <Route path="/reservations" exact component={Reservations} />
               <Route path="/results" exact component={Results} />
+              <Route path="/flight" exact component={Flight} />
               <Route path="/" component={FlightSearch} />
             </Switch>
         </Layout>
