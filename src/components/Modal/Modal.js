@@ -22,7 +22,7 @@ shouldComponentUpdate(nextProps, nextState) {
         let modalWindow = null;
         if (this.props.show) {
             modalWindow = (
-                <div className={classes.Modal}>
+                <div className={classes.Modal} id="modal">
                     {this.props.children}
                 </div>
             );

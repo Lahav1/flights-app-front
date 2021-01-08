@@ -41,3 +41,37 @@
     font-size: 11px;
     font-weight: bold;
 }
+
+.Order button {
+    height: 30px;
+    width: 70px;
+    vertical-align: bottom;
+    background: #00b4db; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00b4db, #0083b0); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00b4db, #0083b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border: none;
+}
+
+.Message {
+    font-size: 15px;
+    color: #52BE80;
+    font-weight: bold;
+}
+
+.Airline {
+    display: flex;
+}
+
+.Airline img {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    margin-top: 15px;
+}
+
+.Airplane {
+    width: 80%;
+    margin: 0 auto; 
+    text-align: right
+}
