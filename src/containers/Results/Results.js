@@ -53,7 +53,7 @@ class Results extends Component {
         return (
             <div className={classes.Results}>
                 <Modal show={this.state.watchingFlight} modalClosed={this.handleResultQuit}>
-                    <Flight details={this.state.rawResults[this.state.currentFlight]}/>
+                    <Flight details={this.state.rawResults[this.state.currentFlight]} tickets={this.state.tickets}/>
                 </Modal>
                 <h3>Flights from {handleAirportName(this.state.source)} to {handleAirportName(this.state.destination)} at {handleDate(this.state.date)}</h3>
                 {results}

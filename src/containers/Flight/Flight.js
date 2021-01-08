@@ -3,7 +3,7 @@ import Arrow from '../../assets/images/straight-right-arrow.svg'
 import Grid from '@material-ui/core/Grid';
 import classes from './Flight.module.css';
 import Aux from '../../hoc/ReactAux';
-import { handleDateTime, handleHour } from '../../utils';
+import { handleDateTime, handleHour, postReservation } from '../../utils';
 import EmailIcon from '@material-ui/icons/Email';
 import TextField from '@material-ui/core/TextField';
 
@@ -18,10 +18,15 @@ class Flight extends Component {d
     }
 
     handleConfirmClick = () => {
-        let val = document.getElementById("email").value;
-        console.log(val);
+        let email = document.getElementById("email").value;
         // send API call.
-        this.setState({confirmed: true});
+        let flights = [];
+        let flight;
+        for (flight of this.props.details.trip_flights) {
+            flights.push(flight.flight_ID);
+        }
+        postReservation(flights, email, this.props.tickets)
+            .then(data => this.setState({confirmed: true}));
     }
 
     render() {

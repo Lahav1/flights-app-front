@@ -78,3 +78,18 @@ export const getFlights = async (src, dest, y, m, d, tickets) => {
     const data = await response.json();
     return data;
 }
+
+export const postReservation = async (flights, email, numberOfTickets) => {
+    let j = {flights: flights, email: email, number_of_tickets: numberOfTickets};
+    const base = 'https://localhost:44353/api/Values/make_reservation';
+    const response = await fetch(base, {
+        method: 'POST', 
+        // mode: 'no-cors', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    const data = await response;
+}
