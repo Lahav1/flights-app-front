@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Arrow from '../../assets/images/straight-right-arrow.svg'
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import classes from './Flight.module.css';
 import Aux from '../../hoc/ReactAux';
 import { handleDateTime, handleHour } from '../../utils';
@@ -26,18 +25,17 @@ class Flight extends Component {d
     }
 
     render() {
-        let str = "";
         let f = this.props.details.trip_flights;
         let i = 1;
         let flights = f.map((flight, index) => {
             let connectionTime = "";
-            if (flight.connection_time != undefined) {
+            if (flight.connection_time !== undefined) {
                 connectionTime = <Grid item xs={12}>
                                     <p className={classes.Connection}>Connection Time: {handleHour(flight.connection_time)}</p>
                                 </Grid>
             }
             return (
-                <Aux>
+                <Aux key={index}>
                     <Grid item xs={12}>
                         <p className={classes.Header}><b>Flight {i++}: {flight.flight_number}</b></p>
                     </Grid>
@@ -46,7 +44,7 @@ class Flight extends Component {d
                         <p className={classes.Airport}>{flight.source_airport.city}</p>
                     </Grid>
                     <Grid item xs={4}>
-                            <img src={Arrow} className={classes.Image} />
+                            <img alt="to" src={Arrow} className={classes.Image} />
                             <p className={classes.Duration}>{handleHour(flight.duration)}</p>
                     </Grid>
                     <Grid item xs={4}>
@@ -55,7 +53,7 @@ class Flight extends Component {d
                     </Grid>
                     <Grid item xs={6}>
                         <div className={classes.Airline}>
-                            <img src={"//www.gstatic.com/flights/airline_logos/70px/" + flight.flight_number.substr(0, 2) + ".png"}></img>
+                            <img  alt={flight.airline.name} src={"//www.gstatic.com/flights/airline_logos/70px/" + flight.flight_number.substr(0, 2) + ".png"}></img>
                             &nbsp;
                             <p className={classes.Text}>{flight.airline.name}</p>
                         </div>
