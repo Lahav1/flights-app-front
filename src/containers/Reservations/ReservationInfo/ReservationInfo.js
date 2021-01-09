@@ -36,7 +36,7 @@ class ReservationInfo extends Component {
                     </Grid>
                     <Grid item xs={4}>
                             <img alt="to" src={Arrow} className={classes.Image} />
-                            {/* <p className={classes.Duration}>{handleHour(flight.duration)}</p> */}
+                            <p className={classes.Duration}>{handleHour(flight.flight_duration)}</p>
                     </Grid>
                     <Grid item xs={4}>
                         <p className={classes.Text}>{handleDateTime(flight.local_arrival_time)}</p>
@@ -58,14 +58,14 @@ class ReservationInfo extends Component {
                 </Aux>
         )});
 
-        let order = (
+        let cancel = (
             <Grid item xs={12}>
                 <button className={classes.Button} onClick={this.handleCancelClick}>Cancel Reservation</button>
             </Grid>
         );
 
         if (this.state.canceled) {
-            order = (
+            cancel = (
                 <div className={classes.Message}>
                      <p>Your reservation has been canceled.</p>
                 </div>
@@ -79,8 +79,15 @@ class ReservationInfo extends Component {
                         <h2>{this.props.details.reservation_id}</h2>
                     </Grid>
                     {flights}
+                    <Grid item xs={12}>
+                        <div>
+                            <p className={classes.Header}><b>Total Duration: </b> {this.props.details.total_flight_duration}</p>
+                            <p className={classes.Header}><b>Passengers: </b> {this.props.details.number_of_passangers}</p>
+                            <p className={classes.Header}><b>Price: </b> {this.props.details.price}$</p>
+                        </div>
+                    </Grid>
                     &nbsp;
-                    {order}
+                    {cancel}
                 </Grid>
             </div>
             
