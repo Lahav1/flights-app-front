@@ -23,6 +23,13 @@
     font-size: 15px;
 }
 
+.SuccessMessage {
+    font-size: 15px;
+    color: #52BE80;
+    font-weight: bold;
+    margin: auto;
+}
+
 .ErrorMessage {
     font-size: 15px;
     color: #CD5C5C;

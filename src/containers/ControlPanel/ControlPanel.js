@@ -11,6 +11,7 @@ import Box from '@material-ui/core/Box';
 import Modal from '../../components/Modal/Modal';
 import AddAirplane from './Airplane/AddAirplane';
 import RemoveAirplane from './Airplane/RemoveAirplane';
+import AddAirline from './Airline/AddAirline';
 
 class ControlPanel extends Component {
     state={
@@ -132,6 +133,11 @@ class ControlPanel extends Component {
             if (this.state.entity === "Airplane") {
                 modalContent = (
                     <AddAirplane />
+                )
+            }
+            if (this.state.entity === "Airline") {
+                modalContent = (
+                    <AddAirline />
                 )
             }
         }

@@ -170,7 +170,7 @@ export const isAdmin = async (email, password) => {
 export const addAirplane = async (name, iata, icao, speed, seats) => {
     let j = {name: name, IATA: iata, ICAO: icao, cruise_speed: speed, num_of_seats: seats};
     const base = 'https://localhost:44353/api/Values/add_airplane';
-    await fetch(base, {
+    let response = await fetch(base, {
         method: 'POST', 
         headers: {
             'Accept': 'application/json',
@@ -178,12 +178,13 @@ export const addAirplane = async (name, iata, icao, speed, seats) => {
         },
         body: JSON.stringify(j)
     });
+    return response;
 }
 
 export const removeAirplane = async (iata) => {
     let j = {IATA: iata};
     const base = 'https://localhost:44353/api/Values/remove_airplane';
-    await fetch(base, {
+    let response = await fetch(base, {
         method: 'POST', 
         headers: {
             'Accept': 'application/json',
@@ -191,4 +192,19 @@ export const removeAirplane = async (iata) => {
         },
         body: JSON.stringify(j)
     });
+    return response;
+}
+
+export const addAirline = async (name, iata, icao, active, rating) => {
+    let j = {name: name, IATA: iata, ICAO: icao, is_active: active, rating: rating};
+    const base = 'https://localhost:44353/api/Values/add_airline';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
 }
