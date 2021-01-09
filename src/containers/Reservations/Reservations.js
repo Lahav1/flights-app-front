@@ -72,21 +72,30 @@ class Reservations extends Component {
             reservations = <Spinner />
         }
         if (this.state.enteredMail) {
-            let i = 0;
-            let r = this.state.reservations.map((reservation, index) => {
-                return <Reservation id={reservation.id} departure={reservation.departure}
-                                source={reservation.source}  destination={reservation.destination} tickets={reservation.tickets} 
-                                number={i++} clicked={(n) => this.handleReservationClicked(n)} key={index} />
-            });
-            reservations = (
-                <div>
-                    <h3>Viewing reservations for: {this.state.email}</h3>
-                    <div className={classes.Reservations}>
-                        {r}
+            if (this.state.reservations.length != 0) {
+                let i = 0;
+                let r = this.state.reservations.map((reservation, index) => {
+                    return <Reservation id={reservation.id} departure={reservation.departure}
+                                    source={reservation.source}  destination={reservation.destination} tickets={reservation.tickets} 
+                                    number={i++} clicked={(n) => this.handleReservationClicked(n)} key={index} />
+                });
+                reservations = (
+                    <div>
+                        <h3>Viewing reservations for: {this.state.email}</h3>
+                        <div className={classes.Reservations}>
+                            {r}
+                        </div>
                     </div>
-                </div>
-            )
+                )
+            } else {
+                reservations = (
+                    <div>
+                        <h3>There are no reservations for: {this.state.email}</h3>
+                    </div>
+                )
+            }
         }
+            
         return(
             <div>
                 <Modal show={this.state.viewingReservation} modalClosed={this.handleReservationQuit}>

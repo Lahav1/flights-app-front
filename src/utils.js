@@ -131,6 +131,9 @@ export const getUserReservations = async (email) => {
         },
         body: JSON.stringify(j)
     });
+    if (response.status === 400) {
+        return [];
+    }
     let data = await response.json();
     return data;
 }
