@@ -53,9 +53,15 @@
     border: none;
 }
 
-.Message {
+.ConfirmMessage {
     font-size: 15px;
     color: #52BE80;
+    font-weight: bold;
+}
+
+.ErrorMessage {
+    font-size: 15px;
+    color:  #CD5C5C;
     font-weight: bold;
 }
 

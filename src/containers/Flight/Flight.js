@@ -10,7 +10,8 @@ import classes from './Flight.module.css';
 class Flight extends Component {d
     state = {
         ordering: false,
-        confirmed: false
+        confirmed: false,
+        error: false
     }
 
     handleOrderClick = () => {
@@ -26,8 +27,14 @@ class Flight extends Component {d
             flights.push(flight.flight_ID);
         }
         postReservation(flights, email, this.props.tickets)
-            .then(data => this.setState({confirmed: true}));
-    }
+            .then(response => {
+                if (response.status === 400) {
+                    this.setState({error: true});
+                } else {
+                    this.setState({confirmed: true});
+                }
+            });
+    };
 
     render() {
         let f = this.props.details.trip_flights;
@@ -102,7 +109,13 @@ class Flight extends Component {d
 
         if (this.state.confirmed) {
             order = (
-                <p className={classes.Message}>Your reservation has been confirmed. You can view it in the reservations page.</p>
+                <p className={classes.ConfirmMessage}>Your reservation has been confirmed. You can view it in the reservations page.</p>
+            );
+        };
+
+        if (this.state.error) {
+            order = (
+                <p className={classes.ErrorMessage}>Email address doesn't exist. Please Try again.</p>
             );
         };
 
