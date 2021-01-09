@@ -96,7 +96,7 @@ export const getFlights = async (src, dest, y, m, d, tickets) => {
 export const postReservation = async (flights, email, numberOfTickets) => {
     let j = {flights: flights, email: email, number_of_tickets: numberOfTickets};
     const base = 'https://localhost:44353/api/Values/make_reservation';
-    await fetch(base, {
+    let response = await fetch(base, {
         method: 'POST', 
         headers: {
             'Accept': 'application/json',
@@ -104,6 +104,7 @@ export const postReservation = async (flights, email, numberOfTickets) => {
         },
         body: JSON.stringify(j)
     });
+    return response;
 }
 
 export const postCancelReservation = async (id) => {
@@ -132,4 +133,18 @@ export const getUserReservations = async (email) => {
     });
     let data = await response.json();
     return data;
+}
+
+export const postSignUp = async (email, name, date, passport) => {
+    let j = {email: email, full_name: name, DOB: date, passport_id: passport};
+    const base = 'https://localhost:44353/api/Values/sign_up';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
 }

@@ -76,12 +76,12 @@ class ReservationInfo extends Component {
             <div>
                 <Grid container spacing={0}>
                     <Grid item xs={12}>
-                        <h2>{this.props.details.reservation_id}</h2>
+                        <h2>Reservation #{this.props.details.reservation_id}</h2>
                     </Grid>
                     {flights}
                     <Grid item xs={12}>
                         <div>
-                            <p className={classes.Header}><b>Total Duration: </b> {this.props.details.total_flight_duration}</p>
+                            {/* <p className={classes.Header}><b>Total Duration: </b> {this.props.details.total_flight_duration}</p> */}
                             <p className={classes.Header}><b>Passengers: </b> {this.props.details.number_of_passangers}</p>
                             <p className={classes.Header}><b>Price: </b> {this.props.details.price}$</p>
                         </div>

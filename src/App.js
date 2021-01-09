@@ -5,6 +5,7 @@ import FlightSearch from './containers/FlightSearch/FlightSearch';
 import Reservations from './containers/Reservations/Reservations';
 import Results from './containers/Results/Results';
 import Flight from './containers/Flight/Flight';
+import SignUp from './containers/SignUp/SignUp';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <div>
         <Layout>
             <Switch>
+              <Route path="/signup" exact component={SignUp} />
               <Route path="/reservations" exact component={Reservations} />
               <Route path="/results" exact component={Results} />
               <Route path="/flight" exact component={Flight} />

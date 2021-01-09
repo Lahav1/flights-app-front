@@ -53,6 +53,10 @@ class FlightSearch extends Component {
         });
     }
 
+    handleSignUp = () => {
+        this.props.history.push('/signup');
+    }
+    
     render() {
         return(
             <div>
@@ -113,6 +117,8 @@ class FlightSearch extends Component {
                     Search&nbsp;&nbsp;&nbsp;    
                     <img alt="search" src={SearchIcon} className={classes.SearchIcon}/>
                 </button>
+                <Box m={2} />
+                <button className={classes.SignUp} onClick={this.handleSignUp}>Sign Up</button>
             </div>
         );
     }
