@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import classes from './ControlPanel.module.css';
 import EmailIcon from '@material-ui/icons/Email';
+import LockIcon from '@material-ui/icons/Lock';
 import TextField from '@material-ui/core/TextField';
 import Aux from '../../hoc/ReactAux';
 import { isAdmin } from '../../utils';
@@ -12,6 +13,7 @@ import Modal from '../../components/Modal/Modal';
 import AddAirplane from './Airplane/AddAirplane';
 import RemoveAirplane from './Airplane/RemoveAirplane';
 import AddAirline from './Airline/AddAirline';
+
 
 class ControlPanel extends Component {
     state={
@@ -73,6 +75,12 @@ class ControlPanel extends Component {
                         label="Password"
                         type="password"
                         autoComplete="current-password"
+                        style={{ width: 200 }}
+                        InputProps={{
+                            startAdornment: (
+                                <LockIcon />
+                            ),
+                            }} 
                     />
                     &nbsp;
                     <button onClick={this.handleContinue} className={classes.Button}>Continue</button>

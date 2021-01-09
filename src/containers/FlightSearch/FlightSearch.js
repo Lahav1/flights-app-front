@@ -113,6 +113,7 @@ class FlightSearch extends Component {
                         type="number"
                         onChange={this.onTicketsChange}
                         defaultValue="1"
+                        InputProps={{ inputProps: { min: 1, max: 1000 } }}
                     />
                     <Box m={1} />
                 </div>
