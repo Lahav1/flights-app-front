@@ -13,6 +13,9 @@ import Modal from '../../components/Modal/Modal';
 import AddAirplane from './Airplane/AddAirplane';
 import RemoveAirplane from './Airplane/RemoveAirplane';
 import AddAirline from './Airline/AddAirline';
+import RemoveAirline from './Airline/RemoveAirline';
+import AddRoute from './Route/AddRoute';
+import RemoveRoute from './Route/RemoveRoute';
 
 
 class ControlPanel extends Component {
@@ -148,12 +151,27 @@ class ControlPanel extends Component {
                     <AddAirline />
                 )
             }
+            if (this.state.entity === "Route") {
+                modalContent = (
+                    <AddRoute />
+                )
+            }
         }
 
         if (this.state.action === "Remove") {
             if (this.state.entity === "Airplane") {
                 modalContent = (
                     <RemoveAirplane />
+                )
+            }
+            if (this.state.entity === "Airline") {
+                modalContent = (
+                    <RemoveAirline />
+                )
+            }
+            if (this.state.entity === "Route") {
+                modalContent = (
+                    <RemoveRoute />
                 )
             }
         }

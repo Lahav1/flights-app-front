@@ -208,3 +208,45 @@ export const addAirline = async (name, iata, icao, active, rating) => {
     });
     return response;
 }
+
+export const removeAirline = async (id) => {
+    let j = {id: id};
+    const base = 'https://localhost:44353/api/Values/remove_airline';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
+}
+
+export const addRoute = async (source, destination, airline, equipment) => {
+    let j = {source_airport: source, destination_airport: destination, airline_id: airline, equipment: equipment};
+    const base = 'https://localhost:44353/api/Values/add_route';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
+}
+
+export const removeRoute = async (id) => {
+    let j = {route_id: id};
+    const base = 'https://localhost:44353/api/Values/remove_route';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
+}
