@@ -1,0 +1,67 @@
+.Image {
+    height: 30px;
+    width: 30px;
+    margin-top: 15px;
+    vertical-align: middle;
+}
+
+.Text {
+    font-size: 14px;
+}
+
+.Header {
+    font-size: 18px;
+}
+
+.Button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    color: #CD5C5C	;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-size: 19px;
+    font-weight: bold;
+    text-shadow: 1px 1px #BDBDBD;
+}
+
+.Duration {
+    margin-top: -5px;
+    font-size: 11px;
+}
+
+.Connection {
+    font-size: 14px;
+    color: #FA8072;
+}
+
+.Airport {
+    margin-top: -12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.Message {
+    font-size: 15px;
+    color: #CD5C5C;
+    font-weight: bold;
+    margin: auto;
+}
+
+.Airline {
+    display: flex;
+    align-items: center;
+}
+
+.Airline img {
+    display: flex;
+    height: 22px;
+    width: 22px;
+}
+
+.Airplane {
+    width: 80%;
+    margin: 0 auto; 
+    text-align: right;
+}

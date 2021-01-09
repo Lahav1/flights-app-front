@@ -63,6 +63,20 @@ export const handleFlightResults = (results) => {
     return r;
 }
 
+export const handleReservationDetails = (results) => {
+    let r = [];
+    var result;
+    for (result of results) {
+        let reservationID = result.reservation_id;
+        let departure = handleDateTime(result.flights[0].local_departure_time).split(' ')[0];
+        let source = result.flights[0].source_airport.city;
+        let destination = result.flights[result.flights.length - 1].destination_airport.city;
+        let tickets = result.number_of_passangers;
+        r.push({id: reservationID, departure: departure, source: source, destination: destination, tickets: tickets})
+    }
+    return r;
+}
+
 export const getAutocomplete = async (str) => {
     const base = 'https://localhost:44353/api/Values';
     const query = `?airportName=${str}`;
@@ -84,11 +98,38 @@ export const postReservation = async (flights, email, numberOfTickets) => {
     const base = 'https://localhost:44353/api/Values/make_reservation';
     await fetch(base, {
         method: 'POST', 
-        // mode: 'no-cors', 
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json; charset=utf-8'
         },
         body: JSON.stringify(j)
     });
+}
+
+export const postCancelReservation = async (id) => {
+    let j = {reservation_id: id};
+    const base = 'https://localhost:44353/api/Values/cancel_reservation';
+    await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+}
+
+export const getUserReservations = async (email) => {
+    let j = {user_id: email};
+    const base = 'https://localhost:44353/api/Values/user_reservations';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    let data = await response.json();
+    return data;
 }

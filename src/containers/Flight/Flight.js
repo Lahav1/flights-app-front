@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Arrow from '../../assets/images/straight-right-arrow.svg'
 import Grid from '@material-ui/core/Grid';
-import classes from './Flight.module.css';
 import Aux from '../../hoc/ReactAux';
 import { handleDateTime, handleHour, postReservation } from '../../utils';
 import EmailIcon from '@material-ui/icons/Email';
 import TextField from '@material-ui/core/TextField';
+import classes from './Flight.module.css';
 
 class Flight extends Component {d
     state = {
@@ -77,6 +77,7 @@ class Flight extends Component {d
                 <button className={classes.Button} onClick={this.handleOrderClick}>Order Tickets</button>
             </Grid>
         );
+
         if (this.state.ordering) {
             order = (
                 <Grid item xs={12}>
@@ -98,6 +99,7 @@ class Flight extends Component {d
                 </Grid>
             );
         };
+
         if (this.state.confirmed) {
             order = (
                 <p className={classes.Message}>Your reservation has been confirmed. You can view it in the reservations page.</p>

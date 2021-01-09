@@ -1,0 +1,27 @@
+.Content {
+    width: 70%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: auto;
+    padding: 20px 10px;
+    background-color: white;
+    box-shadow: 0 2px 1px #ccc;
+    border-radius: 10px;
+}
+
+.Reservations {
+    padding: 0 20px;
+}
+
+.ViewButton {
+    height: 36px;
+    width: 80px;
+    vertical-align: bottom;
+    background: #00b4db; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00b4db, #0083b0); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00b4db, #0083b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    border: none;
+    font-size: 15px;
+}
