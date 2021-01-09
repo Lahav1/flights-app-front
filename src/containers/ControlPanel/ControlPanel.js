@@ -16,7 +16,8 @@ import AddAirline from './Airline/AddAirline';
 import RemoveAirline from './Airline/RemoveAirline';
 import AddRoute from './Route/AddRoute';
 import RemoveRoute from './Route/RemoveRoute';
-
+import AddFlight from './Flight/AddFlight';
+import RemoveFlight from './Flight/RemoveFlight';
 
 class ControlPanel extends Component {
     state={
@@ -156,6 +157,11 @@ class ControlPanel extends Component {
                     <AddRoute />
                 )
             }
+            if (this.state.entity === "Flight") {
+                modalContent = (
+                    <AddFlight />
+                )
+            }
         }
 
         if (this.state.action === "Remove") {
@@ -172,6 +178,11 @@ class ControlPanel extends Component {
             if (this.state.entity === "Route") {
                 modalContent = (
                     <RemoveRoute />
+                )
+            }
+            if (this.state.entity === "Flight") {
+                modalContent = (
+                    <RemoveFlight />
                 )
             }
         }

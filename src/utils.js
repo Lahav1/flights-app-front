@@ -250,3 +250,31 @@ export const removeRoute = async (id) => {
     });
     return response;
 }
+
+export const addFlight = async (route, departure, arrival, price, airplane) => {
+    let j = {route_id: route, departure_time_GMT: departure, arrival_time_GMT: arrival, ticket_price: price, airplane_IATA: airplane};
+    const base = 'https://localhost:44353/api/Values/add_flight';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
+}
+
+export const removeFlight = async (id) => {
+    let j = {flight_id: id};
+    const base = 'https://localhost:44353/api/Values/cancel_flight';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
+}
