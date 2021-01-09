@@ -56,6 +56,10 @@ class FlightSearch extends Component {
     handleSignUp = () => {
         this.props.history.push('/signup');
     }
+
+    handleAdmin = () => {
+        this.props.history.push('/admin_control');
+    }
     
     render() {
         return(
@@ -118,7 +122,9 @@ class FlightSearch extends Component {
                     <img alt="search" src={SearchIcon} className={classes.SearchIcon}/>
                 </button>
                 <Box m={2} />
-                <button className={classes.SignUp} onClick={this.handleSignUp}>Sign Up</button>
+                <button className={classes.BottomButtons} onClick={this.handleSignUp}>Sign Up</button>
+                <br /><br />
+                <button className={classes.BottomButtons} onClick={this.handleAdmin}>Admin Control Panel</button>
             </div>
         );
     }

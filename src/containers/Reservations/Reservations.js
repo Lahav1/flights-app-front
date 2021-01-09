@@ -9,6 +9,7 @@ import Reservation from './Reservation/Reservation';
 import Aux from '../../hoc/ReactAux';
 import ReservationInfo from './ReservationInfo/ReservationInfo';
 
+
 class Reservations extends Component {
     state = {
         reservations: [],

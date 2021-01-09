@@ -10,7 +10,7 @@
     border-radius: 10px;
 }
 
-.ContinueButton {
+.Button {
     height: 36px;
     width: 80px;
     vertical-align: bottom;
@@ -19,6 +19,7 @@
     background: linear-gradient(to right, #00b4db, #0083b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: white;
     border: none;
+    border-radius: 3px;
     font-size: 15px;
 }
 
@@ -27,4 +28,9 @@
     color: #CD5C5C;
     font-weight: bold;
     margin: auto;
+}
+
+.Dropdowns {
+    display: flex;
+    flex-flow: row;
 }

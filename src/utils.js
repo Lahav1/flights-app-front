@@ -163,3 +163,29 @@ export const isAdmin = async (email, password) => {
     let data = await response.json();
     return data;
 }
+
+export const addAirplane = async (name, iata, icao, speed, seats) => {
+    let j = {name: name, IATA: iata, ICAO: icao, cruise_speed: speed, num_of_seats: seats};
+    const base = 'https://localhost:44353/api/Values/add_airplane';
+    await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+}
+
+export const removeAirplane = async (iata) => {
+    let j = {IATA: iata};
+    const base = 'https://localhost:44353/api/Values/remove_airplane';
+    await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+}
