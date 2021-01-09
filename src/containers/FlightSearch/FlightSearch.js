@@ -112,7 +112,7 @@ class FlightSearch extends Component {
                     />
                     <Box m={1} />
                 </div>
-                <Box m={6} />
+                <Box m={5} />
                 <button className={classes.SearchButton} onClick={this.handleClick}>
                     Search&nbsp;&nbsp;&nbsp;    
                     <img alt="search" src={SearchIcon} className={classes.SearchIcon}/>

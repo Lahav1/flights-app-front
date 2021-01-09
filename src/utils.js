@@ -148,3 +148,18 @@ export const postSignUp = async (email, name, date, passport) => {
     });
     return response;
 }
+
+export const isAdmin = async (email, password) => {
+    let j = {email: email, password: password};
+    const base = 'https://localhost:44353/api/Values/is_admin';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    let data = await response.json();
+    return data;
+}
