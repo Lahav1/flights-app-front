@@ -111,6 +111,7 @@ class FlightSearch extends Component {
                         id="tickets"
                         label="Number of Tickets"
                         type="number"
+                        style={{width: 150}}
                         onChange={this.onTicketsChange}
                         defaultValue="1"
                         InputProps={{ inputProps: { min: 1, max: 1000 } }}

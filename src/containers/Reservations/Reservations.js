@@ -72,7 +72,7 @@ class Reservations extends Component {
             reservations = <Spinner />
         }
         if (this.state.enteredMail) {
-            if (this.state.reservations.length != 0) {
+            if (this.state.reservations.length !== 0) {
                 let i = 0;
                 let r = this.state.reservations.map((reservation, index) => {
                     return <Reservation id={reservation.id} departure={reservation.departure}

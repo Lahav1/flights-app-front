@@ -19,9 +19,9 @@ class AddFlight extends Component {
         addFlight(route, departure, arrival, price, airplane)
             .then(data => {
                 if (data.status === 400) {
-                this.setState({success: false, failure: true});
+                    this.setState({success: false, failure: true});
                 } else {
-                this.setState({success: true, failure: false});
+                    this.setState({success: true, failure: false});
                 }
             });
     }
