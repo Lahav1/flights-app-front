@@ -81,7 +81,7 @@ class ReservationInfo extends Component {
                     {flights}
                     <Grid item xs={12}>
                         <div>
-                            <p className={classes.Header}><b>Total Duration: </b> {this.props.details.total_flight_duration}</p>
+                            <p className={classes.Header}><b>Total Duration: </b> {handleHour(this.props.details.duration)}</p>
                             <p className={classes.Header}><b>Passengers: </b> {this.props.details.number_of_passangers}</p>
                             <p className={classes.Header}><b>Price: </b> {this.props.details.price}$</p>
                         </div>

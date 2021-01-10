@@ -58,8 +58,7 @@ export const handleFlightResults = (results) => {
         let airline = result.trip_flights[0].airline.name;
         let price = result.price;
         let stops = result.trip_flights.length - 1;
-        let duration = result.duration;
-        r.push({departure: departure, arrival: arrival, airline: airline, stops: stops, price: price, duration: duration})
+        r.push({departure: departure, arrival: arrival, airline: airline, stops: stops, price: price})
     }
     return r;
 }
