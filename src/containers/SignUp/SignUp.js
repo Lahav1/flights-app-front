@@ -9,7 +9,9 @@ import Aux from '../../hoc/ReactAux';
 class SignUp extends Component {
     state = {
         completed: false,
-        error: false
+        error: false,
+        name: '', 
+        email: ''
     }
 
     handleClick = () => {
@@ -17,6 +19,7 @@ class SignUp extends Component {
         let name = document.getElementById("name").value;
         let date = document.getElementById("date").value;
         let passport = document.getElementById("passport").value;
+        this.setState({name: name, email: email});
         postSignUp(email, name, date, passport)
             .then(response => {
                 if (response.status === 400) {
@@ -25,6 +28,14 @@ class SignUp extends Component {
                     this.setState({completed: true});
                 }
             })
+    }
+
+    handleFinish = () => {
+        this.props.history.push('/');
+    }
+
+    handleRetry = () => {
+        this.setState({completed: false, error: false, email: ''})
     }
 
     render() {   
@@ -68,19 +79,34 @@ class SignUp extends Component {
                     />
                 </div>
                 <Box m={4} />
-                <button className={classes.SignUpButton} onClick={this.handleClick}>
+                <button className={classes.Button} onClick={this.handleClick}>
                     Complete    
                 </button>
             </Aux>
         )
         if (this.state.completed) {
             signup = (
-                <div className={classes.Content}>Signup Succeed</div>
+                <Aux>
+                    <div className={classes.Content}>
+                        <h3>Hello, {this.state.name}!</h3>
+                        <p>You can use the email {this.state.email} to start making reservations.</p>
+                    </div>
+                    <Box m={2} />
+                    <button onClick={this.handleFinish} className={classes.Button}>Continue</button>
+                </Aux>
+                
             )
         }
         if (this.state.error) {
             signup = (
-                <div className={classes.Content}>Email already exists. <br/> Please try again with another address.</div>
+                <Aux>
+                    <div className={classes.Content}>
+                        <h3>Sorry, the address {this.state.email} is already used.</h3>
+                        <p>Please try again.</p>
+                    </div>
+                    <Box m={2} />
+                    <button onClick={this.handleRetry} className={classes.Button}>Retry</button>
+                </Aux>
             )
         }
         return (
