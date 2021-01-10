@@ -68,7 +68,7 @@ class SignUp extends Component {
                     />
                 </div>
                 <Box m={4} />
-                <button className={classes.SearchButton} onClick={this.handleClick}>
+                <button className={classes.SignUpButton} onClick={this.handleClick}>
                     Complete    
                 </button>
             </Aux>

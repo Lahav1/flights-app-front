@@ -20,16 +20,16 @@ class Result extends Component {
                         <Grid item xs={1} />
                         <Grid item xs={4}>
                             <div>
-                                <img alt="departure" src={DepartureLogo} />
+                                <img alt="departure" className={classes.AirplaneLogo} src={DepartureLogo} />
                                 <p>{this.props.departure}</p>
                             </div>
                         </Grid>
                         <Grid item xs={2}>
-                            <img alt="to" className={classes.Image} src={Arrow}/>
+                            <img alt="to" className={classes.ArrowLogo} src={Arrow}/>
                         </Grid>
                         <Grid item xs={4}>
                             <div>
-                                <img alt="arrival" src={ArrivalLogo} />
+                                <img alt="arrival" className={classes.AirplaneLogo} src={ArrivalLogo} />
                                 <p>{this.props.arrival}</p>
                             </div>
                         </Grid>

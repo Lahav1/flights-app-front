@@ -6,13 +6,16 @@
     padding: 10px 0;
 }
 
-.Result img {
-    width: 20px;
-    height: 20px;
+.AirplaneLogo {
+    margin-top: 10px;
+    width: 22px;
+    height: 22px;
     vertical-align: middle;
 }
 
-.Image {
+.ArrowLogo {
     margin-top: 40px;
+    width: 35px;
+    height: 35px;
     vertical-align: middle;
 }

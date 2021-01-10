@@ -88,11 +88,12 @@ class ControlPanel extends Component {
                             ),
                             }} 
                     />
-                    &nbsp;
-                    <button onClick={this.handleContinue} className={classes.Button}>Continue</button>
-                    &nbsp;
-                    {errorMessage}
+                    <Box m={1} />
                 </div>
+                <Box m={3} />
+                <button onClick={this.handleContinue} className={classes.Button}>Continue</button>
+                <Box m={1} />
+                {errorMessage}
             </Aux>
         )
 

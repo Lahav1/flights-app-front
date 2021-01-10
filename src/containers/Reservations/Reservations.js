@@ -8,7 +8,7 @@ import { getUserReservations, handleReservationDetails } from '../../utils';
 import Reservation from './Reservation/Reservation';
 import Aux from '../../hoc/ReactAux';
 import ReservationInfo from './ReservationInfo/ReservationInfo';
-
+import Box from '@material-ui/core/Box';
 
 class Reservations extends Component {
     state = {
@@ -64,8 +64,9 @@ class Reservations extends Component {
                         }} 
                     />
                     &nbsp;
-                    <button onClick={this.handleContinue} className={classes.ViewButton}>Continue</button>
                 </div>
+                <Box m={3} />
+                <button onClick={this.handleContinue} className={classes.ViewButton}>Continue</button>
             </Aux>
         )
         if (this.state.enteredMail) {
