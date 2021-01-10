@@ -126,7 +126,7 @@ class Flight extends Component {d
                 <Grid item xs={12}>
                     <div>
                         <p className={classes.Header}><b>Total Duration: </b> {handleHour(this.props.details.duration)}</p>
-                        <p className={classes.Header}><b>Price: </b> {this.props.details.price}$</p>
+                        <p className={classes.Header}><b>Total Price: </b> {this.props.details.price * this.props.tickets}$</p>
                     </div>
                 </Grid>
                 {order}
