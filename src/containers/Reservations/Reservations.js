@@ -91,7 +91,7 @@ class Reservations extends Component {
             } else {
                 reservations = (
                     <div>
-                        <h3>There are no reservations for: {this.state.email}</h3>
+                        <h3>There are no reservations for {this.state.email}</h3>
                     </div>
                 )
             }
