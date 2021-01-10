@@ -3,9 +3,10 @@ import classes from './Result.module.css';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Aux from '../../../hoc/ReactAux';
-import DepartureLogo from '../../../assets/images/departures.svg'
-import ArrivalLogo from '../../../assets/images/arrivals.svg'
-import Arrow from '../../../assets/images/straight-right-arrow.svg'
+import DepartureLogo from '../../../assets/images/departures.svg';
+import ArrivalLogo from '../../../assets/images/arrivals.svg';
+import Arrow from '../../../assets/images/straight-right-arrow.svg';
+import { handleHour } from '../../../utils';
 
 class Result extends Component {
     handleClick = () => {
@@ -26,6 +27,7 @@ class Result extends Component {
                         </Grid>
                         <Grid item xs={2}>
                             <img alt="to" className={classes.ArrowLogo} src={Arrow}/>
+                            <p className={classes.Duration}>{handleHour(this.props.duration)}</p>
                         </Grid>
                         <Grid item xs={4}>
                             <div>

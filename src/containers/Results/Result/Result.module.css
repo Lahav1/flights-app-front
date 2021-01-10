@@ -19,3 +19,8 @@
     height: 35px;
     vertical-align: middle;
 }
+
+.Duration {
+    margin-top: -5px;
+    font-size: 11px;
+}

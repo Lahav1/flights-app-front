@@ -111,8 +111,8 @@ class ControlPanel extends Component {
                                     id: 'action'
                                 }}
                                 >
-                                <option style={{fontSize: 11}}>Add</option>
-                                <option style={{fontSize: 11}}>Remove</option>
+                                <option style={{fontSize: 11}}>&nbsp;Add</option>
+                                <option style={{fontSize: 11}}>&nbsp;Remove</option>
                             </Select>
                         </FormControl>
                         &nbsp;
@@ -128,11 +128,11 @@ class ControlPanel extends Component {
                                     id: 'entity',
                                 }}
                                 >
-                                <option style={{fontSize: 11}}>Flight</option>
-                                <option style={{fontSize: 11}}>Airport</option>
-                                <option style={{fontSize: 11}}>Airplane</option>
-                                <option style={{fontSize: 11}}>Airline</option>
-                                <option style={{fontSize: 11}}>Route</option>
+                                <option style={{fontSize: 11}}>&nbsp;Flight</option>
+                                <option style={{fontSize: 11}}>&nbsp;Airport</option>
+                                <option style={{fontSize: 11}}>&nbsp;Airplane</option>
+                                <option style={{fontSize: 11}}>&nbsp;Airline</option>
+                                <option style={{fontSize: 11}}>&nbsp;Route</option>
                             </Select>
                         </FormControl>
                     </div>
