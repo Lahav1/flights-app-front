@@ -18,10 +18,12 @@ import AddRoute from './Route/AddRoute';
 import RemoveRoute from './Route/RemoveRoute';
 import AddFlight from './Flight/AddFlight';
 import RemoveFlight from './Flight/RemoveFlight';
+import AddAirport from './Airport/AddAirport';
+import RemoveAirport from './Airport/RemoveAirport';
 
 class ControlPanel extends Component {
     state={
-        confirmed: false,
+        confirmed: true,
         wrongDetails: false,
         executing: false,
         action: '',
@@ -105,11 +107,11 @@ class ControlPanel extends Component {
                                 style={{width: 100}}
                                 inputProps={{
                                     name: 'action',
-                                    id: 'action',
+                                    id: 'action'
                                 }}
                                 >
-                                <option>Add</option>
-                                <option>Remove</option>
+                                <option style={{fontSize: 11}}>Add</option>
+                                <option style={{fontSize: 11}}>Remove</option>
                             </Select>
                         </FormControl>
                         &nbsp;
@@ -125,12 +127,11 @@ class ControlPanel extends Component {
                                     id: 'entity',
                                 }}
                                 >
-                                <option>Flight</option>
-                                <option>Airport</option>
-                                <option>Airplane</option>
-                                <option>Airline</option>
-                                <option>Route</option>
-                                <option>Reservation</option>
+                                <option style={{fontSize: 11}}>Flight</option>
+                                <option style={{fontSize: 11}}>Airport</option>
+                                <option style={{fontSize: 11}}>Airplane</option>
+                                <option style={{fontSize: 11}}>Airline</option>
+                                <option style={{fontSize: 11}}>Route</option>
                             </Select>
                         </FormControl>
                     </div>
@@ -162,6 +163,11 @@ class ControlPanel extends Component {
                     <AddFlight />
                 )
             }
+            if (this.state.entity === "Airport") {
+                modalContent = (
+                    <AddAirport />
+                )
+            }
         }
 
         if (this.state.action === "Remove") {
@@ -183,6 +189,11 @@ class ControlPanel extends Component {
             if (this.state.entity === "Flight") {
                 modalContent = (
                     <RemoveFlight />
+                )
+            }
+            if (this.state.entity === "Airport") {
+                modalContent = (
+                    <RemoveAirport />
                 )
             }
         }

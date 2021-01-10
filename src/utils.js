@@ -278,3 +278,31 @@ export const removeFlight = async (id) => {
     });
     return response;
 }
+
+export const addAirport = async (name, city, country, iata, icao, lat, lon, timezone) => {
+    let j = {name: name, city: city, country: country, IATA: iata, ICAO: icao, lat: lat, lon: lon, timezone: timezone};
+    const base = 'https://localhost:44353/api/Values/add_airport';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
+}
+
+export const removeAirport = async (id) => {
+    let j = {airport_id: id};
+    const base = 'https://localhost:44353/api/Values/remove_airport';
+    let response = await fetch(base, {
+        method: 'POST', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(j)
+    });
+    return response;
+}
