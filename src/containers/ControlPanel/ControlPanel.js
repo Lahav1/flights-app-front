@@ -23,7 +23,7 @@ import RemoveAirport from './Airport/RemoveAirport';
 
 class ControlPanel extends Component {
     state={
-        confirmed: true,
+        confirmed: false,
         wrongDetails: false,
         executing: false,
         action: '',

@@ -24,6 +24,7 @@
 }
 
 .SuccessMessage {
+    padding: 10px;
     font-size: 15px;
     color: #52BE80;
     font-weight: bold;
@@ -31,6 +32,7 @@
 }
 
 .ErrorMessage {
+    padding: 10px;
     font-size: 15px;
     color: #CD5C5C;
     font-weight: bold;
