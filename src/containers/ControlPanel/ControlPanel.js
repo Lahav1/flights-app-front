@@ -50,7 +50,6 @@ class ControlPanel extends Component {
     handleModify = () => {
         let action = document.getElementById("action").value.trim();
         let entity = document.getElementById("entity").value.trim();
-        console.log(action, entity);
         this.setState({action: action, entity:entity, executing: true});
     }
 

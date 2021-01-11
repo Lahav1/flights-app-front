@@ -45,43 +45,43 @@ class AddAirport extends Component {
                 label="Name"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="city"
                 label="City"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="country"
                 label="Country"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="iata"
                 label="IATA"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="icao"
                 label="ICAO"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="lat"
                 label="Latitude"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="lon"
                 label="Longitude"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="timezone"
                 label="Timezone"

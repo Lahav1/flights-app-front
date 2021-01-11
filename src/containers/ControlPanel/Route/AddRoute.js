@@ -41,19 +41,19 @@ class AddRoute extends Component {
                 label="Source"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="dst"
                 label="Destination"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="airline"
                 label="Airline"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="equipment"
                 label="Equipment"

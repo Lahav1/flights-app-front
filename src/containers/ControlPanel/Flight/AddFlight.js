@@ -42,25 +42,25 @@ class AddFlight extends Component {
                 label="Route ID"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="departure"
                 label="Departure Time"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="arrival"
                 label="Arrival Time"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="price"
                 label="Ticket Price"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
                 id="airplane"
                 label="Airplane IATA"

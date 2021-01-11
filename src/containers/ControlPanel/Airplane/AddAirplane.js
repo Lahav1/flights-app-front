@@ -42,25 +42,25 @@ class AddAirplane extends Component {
               label="Name"
               variant="outlined"
               />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
               id="iata"
               label="IATA"
               variant="outlined"
               />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
               id="icao"
               label="ICAO"
               variant="outlined"
               />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
               id="speed"
               label="Speed"
               variant="outlined"
               />
-            <Box m={0.5} />
+            <Box m={1} />
             <TextField
               id="seats"
               label="Number of Seats"
