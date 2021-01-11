@@ -23,7 +23,7 @@ import RemoveAirport from './Airport/RemoveAirport';
 
 class ControlPanel extends Component {
     state={
-        confirmed: false,
+        confirmed: true,
         wrongDetails: false,
         executing: false,
         action: '',
@@ -48,8 +48,9 @@ class ControlPanel extends Component {
     }
 
     handleModify = () => {
-        let action = document.getElementById("action").value;
-        let entity = document.getElementById("entity").value;
+        let action = document.getElementById("action").value.trim();
+        let entity = document.getElementById("entity").value.trim();
+        console.log(action, entity);
         this.setState({action: action, entity:entity, executing: true});
     }
 
@@ -111,8 +112,8 @@ class ControlPanel extends Component {
                                     id: 'action'
                                 }}
                                 >
-                                <option style={{fontSize: 11}}>&nbsp;Add</option>
-                                <option style={{fontSize: 11}}>&nbsp;Remove</option>
+                                <option className={classes.Option}>&nbsp;Add</option>
+                                <option className={classes.Option}>&nbsp;Remove</option>
                             </Select>
                         </FormControl>
                         &nbsp;
@@ -128,11 +129,11 @@ class ControlPanel extends Component {
                                     id: 'entity',
                                 }}
                                 >
-                                <option style={{fontSize: 11}}>&nbsp;Flight</option>
-                                <option style={{fontSize: 11}}>&nbsp;Airport</option>
-                                <option style={{fontSize: 11}}>&nbsp;Airplane</option>
-                                <option style={{fontSize: 11}}>&nbsp;Airline</option>
-                                <option style={{fontSize: 11}}>&nbsp;Route</option>
+                                <option className={classes.Option}>&nbsp;Flight</option>
+                                <option className={classes.Option}>&nbsp;Airport</option>
+                                <option className={classes.Option}>&nbsp;Airplane</option>
+                                <option className={classes.Option}>&nbsp;Airline</option>
+                                <option className={classes.Option}>&nbsp;Route</option>
                             </Select>
                         </FormControl>
                     </div>
