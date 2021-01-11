@@ -46,7 +46,7 @@ class Results extends Component {
             results = this.state.results.map((result, index) => {
                 return <Result departure={result.departure} arrival={result.arrival} 
                                 airline={result.airline} stops={result.stops}
-                                price={result.price} tickets={this.state.tickets}
+                                price={result.price} tickets={this.state.tickets} duration={result.duration}
                                 number={i++} clicked={(n) => this.handleResultClick(n)} key={index} />
             });
         }
