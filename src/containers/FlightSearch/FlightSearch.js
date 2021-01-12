@@ -75,7 +75,7 @@ class FlightSearch extends Component {
                         defaultValue="2021-02-01"
                         inputProps={{
                             min: "2021-02-01",
-                            max: "2021-02-28"
+                            max: "2021-02-26"
                           }}
                     />
                     <Box m={2} />
