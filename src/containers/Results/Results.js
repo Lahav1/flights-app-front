@@ -16,7 +16,8 @@ class Results extends Component {
         tickets: 1,
         loading: true,
         watchingFlight: false,
-        currentFlight: 0
+        currentFlight: 0,
+        error: false
     }
 
     handleResultClick = (i) => {
@@ -36,11 +37,16 @@ class Results extends Component {
         getFlights(extractICAO(this.props.location.source), extractICAO(this.props.location.destination), d[0], d[1], d[2], this.props.location.tickets)
         .then(data => {
             this.setState({rawResults: data, results: handleFlightResults(data), loading: false});
+        }).catch(error => {
+            this.setState({error: true})
         });
     }
 
     render() {
         let results = <Spinner />
+        if (this.state.error) {
+            results = <p>Failed to connect to server. Please try again later.</p>
+        }
         let i = 0;
         if (!this.state.loading) {
             results = this.state.results.map((result, index) => {

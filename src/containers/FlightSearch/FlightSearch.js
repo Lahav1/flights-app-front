@@ -49,7 +49,7 @@ class FlightSearch extends Component {
             date: this.state.departureDate,
             source: this.state.source,
             destination: this.state.destination, 
-            tickets: this.state.numberOfTickets
+            tickets: this.state.numberOfTickets,
         });
     }
 
