@@ -17,7 +17,8 @@ class Reservations extends Component {
         email: '',
         enteredMail: false,
         currentReservation: 0,
-        viewingReservation: false
+        viewingReservation: false,
+        error: false
     }
 
     handleContinue = () => {
@@ -29,6 +30,8 @@ class Reservations extends Component {
                 reservations: handleReservationDetails(data), 
                 enteredMail: true
             });
+        }).catch(error => {
+            this.setState({error: true})
         });
     }
 
@@ -69,9 +72,15 @@ class Reservations extends Component {
                 <button onClick={this.handleContinue} className={classes.ViewButton}>Continue</button>
             </Aux>
         )
+
         if (this.state.enteredMail) {
             reservations = <Spinner />
         }
+
+        if (this.state.error) {
+            reservations = <p>Failed to connect to server. Please try again later.</p>
+        }
+
         if (this.state.enteredMail) {
             if (this.state.reservations.length !== 0) {
                 let i = 0;

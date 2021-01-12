@@ -49,12 +49,17 @@ class Results extends Component {
         }
         let i = 0;
         if (!this.state.loading) {
-            results = this.state.results.map((result, index) => {
-                return <Result departure={result.departure} arrival={result.arrival} 
-                                airline={result.airline} stops={result.stops}
-                                price={result.price} tickets={this.state.tickets} duration={result.duration}
-                                number={i++} clicked={(n) => this.handleResultClick(n)} key={index} />
-            });
+            if (this.state.results.length == 0) {
+                results = <p>Sorry, we couldn't find any flights that match your search.</p> 
+            } else {
+                results = this.state.results.map((result, index) => {
+                    return <Result departure={result.departure} arrival={result.arrival} 
+                                    airline={result.airline} stops={result.stops}
+                                    price={result.price} tickets={this.state.tickets} duration={result.duration}
+                                    number={i++} clicked={(n) => this.handleResultClick(n)} key={index} />
+                });
+            }
+            
         }
         return (
             <div className={classes.Results}>

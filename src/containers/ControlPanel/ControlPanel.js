@@ -26,6 +26,7 @@ class ControlPanel extends Component {
         confirmed: false,
         wrongDetails: false,
         executing: false,
+        error: false,
         action: '',
         entity:''
     }
@@ -40,6 +41,8 @@ class ControlPanel extends Component {
                 } else {
                     this.setState({confirmed: true});
                 }
+            }).catch(error => {
+                this.setState({error: true})
             })
     }
 
@@ -96,6 +99,10 @@ class ControlPanel extends Component {
                 {errorMessage}
             </Aux>
         )
+
+        if (this.state.error) {
+            panel = <p>Failed to connect to server. Please try again later.</p>
+        }
 
         if (this.state.confirmed) {
             panel = (
