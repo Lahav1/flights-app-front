@@ -42,31 +42,35 @@ class AddAirline extends Component {
                 label="Name"
                 variant="outlined"
                 />
-            <Box m={0.5} />
+            <Box m={3} />
             <TextField
                 id="iata"
                 label="IATA"
                 variant="outlined"
+                helperText="2 characters code"
                 />
-            <Box m={0.5} />
+            <Box m={2} />
             <TextField
                 id="icao"
                 label="ICAO"
                 variant="outlined"
+                helperText="3 characters code"
                 />
-            <Box m={0.5} />
+            <Box m={2} />
             <TextField
                 id="active"
                 label="Active"
                 variant="outlined"
+                helperText="True/False"
                 />
-            <Box m={0.5} />
+            <Box m={2} />
             <TextField
                 id="rating"
                 label="Rating"
                 variant="outlined"
+                helperText="Number in range 0 - 5"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <button className={classes.Button} onClick={this.handleClick}>Execute</button>
             {message}
         </div>

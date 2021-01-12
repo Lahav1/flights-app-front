@@ -36,37 +36,41 @@ class AddFlight extends Component {
         }
         return (
         <div>
-            <h3>Add a Flight</h3>
+            <h3>Add Flight</h3>
             <TextField
                 id="route"
                 label="Route ID"
                 variant="outlined"
                 />
-            <Box m={1} />
+            <Box m={3} />
             <TextField
                 id="departure"
                 label="Departure Time"
                 variant="outlined"
+                helperText="yyyy-MM-dd hh:mm"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="arrival"
                 label="Arrival Time"
                 variant="outlined"
+                helperText="yyyy-MM-dd hh:mm"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="price"
                 label="Ticket Price"
                 variant="outlined"
+                helperText="USD"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="airplane"
                 label="Airplane IATA"
                 variant="outlined"
+                helperText="3 characters code"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <button className={classes.Button} onClick={this.handleClick}>Execute</button>
             {message}
         </div>

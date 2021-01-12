@@ -40,26 +40,30 @@ class AddRoute extends Component {
                 id="src"
                 label="Source"
                 variant="outlined"
+                helperText="Source Airport ID"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="dst"
                 label="Destination"
                 variant="outlined"
+                helperText="Destination Airport ID"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="airline"
                 label="Airline"
                 variant="outlined"
+                helperText="Airline ID"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="equipment"
-                label="Equipment"
+                label="Allowed Airplanes"
                 variant="outlined"
+                helperText="Airplanes IATA Codes"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <button className={classes.Button} onClick={this.handleClick}>Execute</button>
             {message}
         </div>

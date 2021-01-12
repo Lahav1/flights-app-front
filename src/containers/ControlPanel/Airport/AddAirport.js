@@ -45,49 +45,54 @@ class AddAirport extends Component {
                 label="Name"
                 variant="outlined"
                 />
-            <Box m={1} />
+            <Box m={3} />
             <TextField
                 id="city"
                 label="City"
                 variant="outlined"
                 />
-            <Box m={1} />
+            <Box m={3} />
             <TextField
                 id="country"
                 label="Country"
                 variant="outlined"
                 />
-            <Box m={1} />
+            <Box m={3} />
             <TextField
                 id="iata"
                 label="IATA"
                 variant="outlined"
+                helperText="3 characters code"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="icao"
                 label="ICAO"
                 variant="outlined"
+                helperText="4 characters code"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="lat"
                 label="Latitude"
                 variant="outlined"
+                helperText="Number in range -90 - 90"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="lon"
                 label="Longitude"
                 variant="outlined"
+                helperText="Number in range -180 - 180"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <TextField
                 id="timezone"
                 label="Timezone"
                 variant="outlined"
+                helperText="Number in range -12 - 12"
                 />
-            <Box m={1} />
+            <Box m={2} />
             <button className={classes.Button} onClick={this.handleClick}>Execute</button>
             {message}
         </div>
