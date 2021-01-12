@@ -9,9 +9,10 @@ import Aux from '../../hoc/ReactAux';
 class SignUp extends Component {
     state = {
         completed: false,
-        error: false,
+        alreadyUsed: false,
         name: '', 
-        email: ''
+        email: '',
+        error: false
     }
 
     handleClick = () => {
@@ -23,11 +24,13 @@ class SignUp extends Component {
         postSignUp(email, name, date, passport)
             .then(response => {
                 if (response.status === 400) {
-                    this.setState({error: true});
+                    this.setState({alreadyUsed: true});
                 } else {
                     this.setState({completed: true});
                 }
-            })
+            }).catch(
+                error => { this.setState({error: true}); }
+            );
     }
 
     handleFinish = () => {
@@ -35,7 +38,7 @@ class SignUp extends Component {
     }
 
     handleRetry = () => {
-        this.setState({completed: false, error: false, email: ''})
+        this.setState({completed: false, alreadyUsed: false, email: ''})
     }
 
     render() {   
@@ -80,7 +83,7 @@ class SignUp extends Component {
                 </div>
                 <Box m={4} />
                 <button className={classes.Button} onClick={this.handleClick}>
-                    Complete    
+                    Sign Up    
                 </button>
             </Aux>
         )
@@ -97,7 +100,7 @@ class SignUp extends Component {
                 
             )
         }
-        if (this.state.error) {
+        if (this.state.alreadyUsed) {
             signup = (
                 <Aux>
                     <div className={classes.Content}>
@@ -109,6 +112,18 @@ class SignUp extends Component {
                 </Aux>
             )
         }
+
+        if (this.state.error) {
+            signup = (
+                <Aux>
+                    <div className={classes.Content}>
+                        <h3>Failed to connect to server. Please try again later.</h3>
+                    </div>
+                </Aux>
+            )
+        }
+
+
         return (
             <div>
                 {signup}
