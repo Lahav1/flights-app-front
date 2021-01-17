@@ -123,9 +123,9 @@ class FlightSearch extends Component {
                     Search&nbsp;&nbsp;&nbsp;    
                     <img alt="search" src={SearchIcon} className={classes.SearchIcon}/>
                 </button>
-                <Box m={5} />
+                <Box m={10} />
                 <button className={classes.BottomButtons} onClick={this.handleSignUp}>Sign Up</button>
-                <br /><br />
+                <Box m={2} />
                 <button className={classes.BottomButtons} onClick={this.handleAdmin}>Admin Control Panel</button>
             </div>
         );
